@@ -1,6 +1,6 @@
 body {
   background-color: #222222;
-  font-family: 'Shadows Into Light', cursive;
+  font-family: 'Fahkwang', sans-serif;
 }
   
 .box {
@@ -36,7 +36,7 @@ body {
   width: 150px;
   line-height: 0;
   margin: auto;
-  box-shadow: 0px 0px 20px white;
+  box-shadow: 0px 0px 20px green;
   margin-top: 20px;
 }
   

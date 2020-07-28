@@ -4,12 +4,13 @@ import Grid from './components/Grid';
 import Buttons from './components/Buttons'
 import Rules from './components/Rules'
 
+
 class App extends React.Component {
 	constructor() {
 		super();
 		this.speed = 100;
-		this.rows = 30;
-		this.cols = 50;
+		this.rows = 35;
+		this.cols = 45;
 
 		this.state = {
 			generation: 0,
@@ -72,14 +73,14 @@ class App extends React.Component {
 		switch (size) {
 			case "1":
 				this.cols = 20;
-				this.rows = 10;
+				this.rows = 20;
 			break;
 			case "2":
-				this.cols = 50;
-				this.rows = 30;
+				this.cols = 40;
+				this.rows = 40;
 			break;
 			default:
-				this.cols = 70;
+				this.cols = 50;
 				this.rows = 50;
 		}
 		this.clear();

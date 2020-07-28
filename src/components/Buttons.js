@@ -11,9 +11,10 @@ class Buttons extends React.Component {
 		return (
 			<div className="center">
 				
-					<Button className="btn btn-default" onClick={this.props.playButton}>
-						Start
+					<Button className="btn btn-primary" onClick={this.props.playButton}>
+					Start
 					</Button>
+					
 					<Button className="btn btn-default" onClick={this.props.pauseButton}>
 					  Stop
 					</Button>
@@ -34,9 +35,9 @@ class Buttons extends React.Component {
 						id="size-menu"
 						onSelect={this.handleSelect}
 					>
-						<Dropdown.Item eventKey="1">20x10</Dropdown.Item>
-						<Dropdown.Item eventKey="2">50x30</Dropdown.Item>
-						<Dropdown.Item eventKey="3">70x50</Dropdown.Item>
+						<Dropdown.Item eventKey="1">20x20</Dropdown.Item>
+						<Dropdown.Item eventKey="2">40x40</Dropdown.Item>
+						<Dropdown.Item eventKey="3">50x50</Dropdown.Item>
 					</DropdownButton>
 			
 			</div>
