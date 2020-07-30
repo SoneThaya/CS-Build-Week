@@ -3,6 +3,7 @@ import './App.css';
 import Grid from './components/Grid';
 import Buttons from './components/Buttons'
 import Rules from './components/Rules'
+import About from './components/About'
 
 
 
@@ -279,11 +280,9 @@ class App extends React.Component {
 					justifyContent: 'center',
 				}}>
 					<Rules />
+					<About />
 				</div>
 
-				
-				<h4>About</h4>
-				<p>The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970. It is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input. One interacts with the Game of Life by creating an initial configuration and observing how it evolves. It is Turing complete and can simulate a universal constructor or any other Turing machine.</p>
 			</div>
 		);
 	}
