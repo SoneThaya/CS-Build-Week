@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Dropdown, DropdownButton } from 'react-bootstrap';
 
 class Buttons extends React.Component {
-
+	// pass in method to select drop down
 	handleSelect = (evt) => {
 		this.props.gridSize(evt);
 	}

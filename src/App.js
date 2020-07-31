@@ -16,20 +16,23 @@ class App extends React.Component {
 
 		this.state = {
 			generation: 0,
+			// creates a 2 dimensional array sets initially to false
 			gridFull: Array(this.rows).fill().map(() => Array(this.cols).fill(false)),
 		};
 		
 	}
 	
-
+	// creates an clone of the array
 	selectBox = (row, col) => {
 		let gridCopy = arrayClone(this.state.gridFull);
+		// finds the exact square that was select and makes it opposite
 		gridCopy[row][col] = !gridCopy[row][col];
 		this.setState({
 			gridFull: gridCopy
 		});
 	}
 
+	// fills grid with random amount of squares on
 	seed = () => {
 		let gridCopy = arrayClone(this.state.gridFull);
 		for (let i = 0; i < this.rows; i++) {
@@ -132,13 +135,37 @@ class App extends React.Component {
 					gridCopy[7][10] = true;
 					gridCopy[7][11] = true;
 					gridCopy[7][12] = true;
+					gridCopy[9][4] = true;
+					gridCopy[9][5] = true;
+					gridCopy[9][6] = true;
+					gridCopy[9][10] = true;
+					gridCopy[9][11] = true;
+					gridCopy[9][12] = true;
+					gridCopy[10][2] = true;
+					gridCopy[10][7] = true;
+					gridCopy[10][9] = true;
+					gridCopy[10][14] = true;
+					gridCopy[11][2] = true;
+					gridCopy[11][7] = true;
+					gridCopy[11][9] = true;
+					gridCopy[11][14] = true;
+					gridCopy[12][2] = true;
+					gridCopy[12][7] = true;
+					gridCopy[12][9] = true;
+					gridCopy[12][14] = true;
+					gridCopy[14][4] = true;
+					gridCopy[14][5] = true;
+					gridCopy[14][6] = true;
+					gridCopy[14][10] = true;
+					gridCopy[14][11] = true;
+					gridCopy[14][12] = true;
 		
 		this.setState({
 			gridFull: gridCopy
 		});
 	}
 
-
+	// starts game and sets speed
 	playButton = () => {
 		clearInterval(this.intervalId);
 		this.intervalId = setInterval(this.play, this.speed);
@@ -164,6 +191,7 @@ class App extends React.Component {
 	}
 
 	clear = () => {
+		// creates a new empty grid then sets it as state, generations to 0
 		var grid = Array(this.rows).fill().map(() => Array(this.cols).fill(false));
 		this.setState({
 			gridFull: grid,
@@ -180,15 +208,20 @@ class App extends React.Component {
 			case "2":
 				this.cols = 40;
 				this.rows = 40;
-			break;
-			default:
+				break;
+			case "3":
 				this.cols = 50;
 				this.rows = 50;
+				break;
+			default:
+				this.cols = 35;
+				this.rows = 45;
 		}
 		this.clear();
 
 	}
 
+	// step through one generation each press
 	nextStep = () => {
 		let g = this.state.gridFull;
 		let g2 = arrayClone(this.state.gridFull);
@@ -217,12 +250,16 @@ class App extends React.Component {
 
 	}
 
+	// play game
 	play = () => {
+		// makes 2 grid, one clone
 		let g = this.state.gridFull;
 		let g2 = arrayClone(this.state.gridFull);
 
+		// goes through all boxes of grid and check game rules
 		for (let i = 0; i < this.rows; i++) {
-		  for (let j = 0; j < this.cols; j++) {
+			for (let j = 0; j < this.cols; j++) {
+				// count is how many neighbors a cell has
 		    let count = 0;
 		    if (i > 0) if (g[i - 1][j]) count++;
 		    if (i > 0 && j > 0) if (g[i - 1][j - 1]) count++;
@@ -242,7 +279,7 @@ class App extends React.Component {
 		});
 
 	}
-
+	// automatically seeds the grid and starts the game
 	componentDidMount() {
 		this.seed();
 		this.playButton();
@@ -287,7 +324,7 @@ class App extends React.Component {
 		);
 	}
 }
-
+// helper function to clone array
 function arrayClone(arr) {
 	return JSON.parse(JSON.stringify(arr));
 }

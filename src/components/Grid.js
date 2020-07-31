@@ -7,11 +7,14 @@ class Grid extends React.Component {
 		var rowsArr = [];
 
 		var boxClass = "";
+		// creates grid with rows and cols passed in, sets box id as [i][j]
 		for (var i = 0; i < this.props.rows; i++) {
 			for (var j = 0; j < this.props.cols; j++) {
 				let boxId = i + "_" + j;
 
+				// sets box class, if true its sets class as on, off if false
 				boxClass = this.props.gridFull[i][j] ? "box on" : "box off";
+				//creates grid by pushing into rowsArr
 				rowsArr.push(
 					<Box
 						boxClass={boxClass}
@@ -26,7 +29,8 @@ class Grid extends React.Component {
 		}
 
 		return (
-			<div className="grid" style={{width: width}}>
+			<div className="grid" style={{ width: width }}>
+				{/*renders rows array - grid */}
 				{rowsArr}
 			</div>
 		);

@@ -9,3 +9,9 @@
 - Any live cell with more than three live neighbours dies, as if by overcrowding.
 - Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
 
+
+## Installation
+- Clone this repo.
+- cd into folder
+- ```npm install``` to install dependencies 
+- ```npm start``` to run
